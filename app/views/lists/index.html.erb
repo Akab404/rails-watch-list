@@ -1,0 +1,16 @@
+<h1 class="fs-1">All my lists</h1>
+
+<ul class="list-group">
+  <% @lists.each do |list|%>
+    <li class="list-group-item">
+      <%= link_to list_path(list),  class:"p-3 d-block text-decoration-none"  do %>
+        <i class="fa-solid fa-film"></i> <%= list.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to new_list_path,  class:"btn btn-primary mt-3"  do %>
+  <i class="fa-solid fa-plus"></i> Add a list
+<% end %>

@@ -1,0 +1,28 @@
+<h1 class="fs-1"><%= @list.name.capitalize %></h1>
+
+<ul class="list-group d-flex flex-row gap-3" id="show-list">
+    <% @list.bookmarks.each do |book| %>
+    <li class="list-group-item w-25 mt-2 border rounded p-3">
+        <%= image_tag book.movie.poster_url, alt: "Le Wagon", width: 200 %>
+      <p class="fs-3">
+        <%= book.movie.title %>
+      </p>
+      // <%= book.comment %>
+      <br/>
+      <%= link_to bookmark_path(book),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-outline-secondary mt-3"  do %>
+        <i class="fa-solid fa-trash"></i> delete from the list
+      <% end %>
+
+    </li>
+    <% end %>
+
+</ul>
+
+<%= link_to new_list_bookmark_path(@list),  class:"btn btn-primary mt-3"  do %>
+  <i class="fa-solid fa-plus"></i> Add a film
+<% end %>
+
+<%= link_to lists_path,  class:"btn btn-outline-secondary mt-3"  do %>
+  <i class="fa-sharp fa-solid fa-rotate-left"></i> Back to list
+<% end %>

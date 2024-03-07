@@ -1,0 +1,11 @@
+<h1 class="fs-1">All my Bookmarks</h1>
+
+<ul class="list-group">
+  <% @bookmarks.each do |bookmark|%>
+    <li class="list-group-item">
+      <%= link_to bookmark_path(bookmark),  class:"p-3 d-block"  do %>
+        <i class="fa-solid fa-utensils"></i> <%= bookmark.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
